@@ -1,0 +1,24 @@
+{
+  "name": "cache-response-with-sw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carmalou/cache-response-with-sw.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carmalou/cache-response-with-sw/issues"
+  },
+  "homepage": "https://github.com/carmalou/cache-response-with-sw#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}
