@@ -21,19 +21,13 @@ self.onactivate = function(event) {
 self.onfetch = function(event) {
     event.respondWith(
         caches.match(event.request)
-        .then(function(cachedFiles) {
+        .then(async function(cachedFiles) {
             if(cachedFiles) {
                 return cachedFiles;
             } else {
-                return fetch(event.request)
-                .then(async function(response) {
-                    var cache = await caches.open('cache-response1');
-                    await cache.put(event.request, response.clone());
-                    return response;
-                })
-                .catch(function(err) {
-                    console.log('err line 54! ', err);
-                })
+                var cache = await caches.open('cache-response1');
+                await cache.add(event.request);
+                return fetch(event.request);
             }
         })
     )
