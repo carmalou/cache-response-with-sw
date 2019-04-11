@@ -21,7 +21,7 @@ self.onactivate = function(event) {
 self.onfetch = function(event) {
     event.respondWith(
         caches.match(event.request)
-        .then(async function(cachedFiles) {
+        .then(function(cachedFiles) {
             if(cachedFiles) {
                 return cachedFiles;
             } else {
