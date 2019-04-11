@@ -25,9 +25,15 @@ self.onfetch = function(event) {
             if(cachedFiles) {
                 return cachedFiles;
             } else {
-                var cache = await caches.open('cache-response1');
-                await cache.add(event.request);
-                return fetch(event.request);
+                return fetch(event.request)
+                .then(async function(response) {
+                    var cache = await caches.open(cacheName);
+                    await cache.put(event.request, response.clone());
+                    return response;
+                })
+                .catch(function(err) {
+                    console.log('err! ', err);
+                })
             }
         })
     )
