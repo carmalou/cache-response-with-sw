@@ -19,6 +19,7 @@ self.onactivate = function(event) {
 }
 
 self.onfetch = function(event) {
+    let cacheName = 'cache-fetch-response';
     event.respondWith(
         caches.match(event.request)
         .then(function(cachedFiles) {
